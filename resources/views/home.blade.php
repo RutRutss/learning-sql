@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="videoDesc">Video Description:</label>
-                            <textarea class="form-control" id="videoDesc" name="videoDesc" rows="3" required></textarea>
+                            <textarea class="form-control" id="videoDesc" name="videoDesc" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="videoLink">Video Link:</label>

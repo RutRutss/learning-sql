@@ -8,23 +8,34 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SQL LMS</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    {{-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        body {
+            font-family: 'Kanit';
+            font-size: 1rem;
+        }
+    </style>
+
 </head>
 
 <body>
     <div id="app">
+
         @if (Request::is('/'))
             {{-- ถ้าอยู่ที่หน้าหลัก (\) --}}
-            <nav class="navbar navbar-expand-md navbar-light bg-warning shadow-sm d-none">
-                <!-- โค้ด Navbar ที่ซ่อนไว้ -->
-            </nav>
+
         @else
             <nav class="navbar navbar-expand-md navbar-light bg-warning shadow-sm">
                 <div class="container">
@@ -47,11 +58,11 @@
                         <ul class="navbar-nav ms-auto">
                             <!-- Authentication Links -->
                             @guest
-                                @if (Route::has('login'))
+                                {{-- @if (Route::has('login'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
-                                @endif
+                                @endif --}}
 
                                 {{-- @if (Route::has('register'))
                                 <li class="nav-item">
@@ -72,8 +83,7 @@
                                             {{ __('Logout') }}
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
                                     </div>
@@ -88,7 +98,16 @@
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
+
+    {{-- Footer --}}
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Copyright ©2023 <a href="https://www.facebook.com/rut.yuensuk/"
+                    target="blank">Wisarut Yuensuk</a></span>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
